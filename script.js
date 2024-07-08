@@ -22,5 +22,5 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayLibrary() {
-
+  myLibrary.forEach(book => book.info());
 }
