@@ -14,6 +14,9 @@ function Book(title, author, pages, read) {
     }
     return '${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}';
   }
+  this.toggleRead = function() {
+    this.read = !this.read;
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
