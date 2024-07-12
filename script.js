@@ -1,10 +1,13 @@
 const myLibrary = [];
+let id = 0;
 
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.id = id;
+  id++;
   this.info = function() {
     let readStatus;
     if (read) {
@@ -58,6 +61,30 @@ function displayLibrary() {
     cardGrid.appendChild(card);
   }
 }
+
+const dialog = document.querySelector("dialog");
+const newBookButton = document.querySelector("dialog + button");
+const submitButton = document.querySelector("#submitBtn");
+
+newBookButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+
+
+submitButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const title = dialog.querySelector("#title");
+  const author = dialog.querySelector("#author");
+  const pages = dialog.querySelector("#pages");
+  const read = dialog.querySelector("#read");
+  
+  addBookToLibrary(title.value, author.value, pages.value, read.checked);
+  displayLibrary();
+  
+  dialog.close();
+});
 
 addBookToLibrary("Bob's Cook", "Bob", 522, true);
 addBookToLibrary("You're Mom Cook", "Bob", 521, false);

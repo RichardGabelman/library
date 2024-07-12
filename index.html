@@ -9,6 +9,29 @@
 </head>
 <body>
   <div class="cards"></div>
-  <button>New Book</button>
+  <dialog>
+    <form>
+      <fieldset>
+        <legend>Add Book</legend>
+
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author">
+
+        <label for="pages">Pages:</label>
+        <input type="number" id="pages" name="pages" min="1">
+
+        <label for="read">Read:</label>
+        <input type="checkbox" id="read" name="read">
+
+      </fieldset>
+
+      <button value="cancel" formmethod="dialog">Cancel</button>
+      <button id="submitBtn" type="submit">Submit</button>
+    </form>
+  </dialog>
+  <button>Add Book</button>
 </body>
 </html>
