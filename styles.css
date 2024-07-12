@@ -15,21 +15,44 @@
 }
 
 .card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   border: 1px solid black;
   padding: 10px;
   background-color: white;
+  max-width: 200px;
   width: max-content;
   box-shadow: 2px 2px black;
 }
 
-.card button {
+.card div {
+  margin-bottom: 5px;
+}
+
+.readLine {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.readBtn {
+  padding: 1px 5px;
+  box-shadow: none;
+  background-color: antiquewhite;
+  align-self: center;
+  margin-bottom: 3px;
+}
+
+.remove {
   box-shadow: none;
   padding: 8px 6px;
   line-height: 0px;
-  float: right;
+  align-self: flex-end;
 }
 
-.card button:hover {
+.remove:hover {
   background-color: red;
 }
 

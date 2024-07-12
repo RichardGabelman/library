@@ -48,15 +48,23 @@ function displayLibrary() {
     pages.textContent = "Pages: " + myLibrary[i].pages;
     card.appendChild(pages);
 
+    const readLine = document.createElement("div");
+    readLine.classList.add('readLine');
     const read = document.createElement("div");
-    let readStatus;
+    read.textContent = "Read: ";
+
+    const readBtn = document.createElement("button");
+    readBtn.classList.add("readBtn");
+    readBtn.setAttribute("data-index", i);
     if (myLibrary[i].read) {
-      readStatus = "Y";
+      readBtn.textContent = "Y";
     } else {
-      readStatus = "N";
+      readBtn.textContent = "N";
     }
-    read.textContent = "Read: " + readStatus;
-    card.appendChild(read);
+    readLine.appendChild(read);
+    readLine.appendChild(readBtn);
+
+    card.appendChild(readLine);
 
     const btn = document.createElement("button");
     btn.classList.add("remove");
@@ -98,10 +106,14 @@ function someListener(event) {
     myLibrary.splice(element.getAttribute("data-index"), 1);
     displayLibrary();
   }
+  if (element.classList.contains("readBtn")) {
+    myLibrary[element.getAttribute("data-index")].toggleRead();
+    displayLibrary();
+  }
 }
 
-addBookToLibrary("Bob's Cook", "Bob", 522, true);
-addBookToLibrary("You're Mom Cook", "Bob", 521, false);
-addBookToLibrary("Bob's Cook", "Bob", 522, true);
+addBookToLibrary("Bob's Cook Book", "Bob", 22, true);
+addBookToLibrary("Hunger Games", "Suzanne Collins", 221, false);
+addBookToLibrary("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 522, true);
 
 displayLibrary();
