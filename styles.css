@@ -23,15 +23,48 @@
 }
 
 button {
-  margin-left: 25%;
   padding: 10px;
   border: 1px solid black;
   box-shadow: 1px 1px black;
 }
 
+dialog + button {
+  margin-left: 25%;
+}
+
+dialog button {
+  margin: auto;
+}
+
 button:hover {
   background-color: black;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
+}
+
+dialog {
+  margin: 20px auto;
+  padding: 20px;
+}
+
+fieldset {
+  padding: 20px;
+  margin: 20px;
+}
+
+.labelInput {
+  margin-bottom: 15px;
+}
+
+.labelInput:last-child {
+  margin-bottom: 0px;
+}
+
+input {
+  border: 1px solid black;
+}
+
+.btns {
+  display: flex;
 }

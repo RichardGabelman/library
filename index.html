@@ -14,22 +14,31 @@
       <fieldset>
         <legend>Add Book</legend>
 
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title">
+        <div class="labelInput">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title">
+        </div>
 
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author">
+        <div class="labelInput">
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author">
+        </div>
 
-        <label for="pages">Pages:</label>
-        <input type="number" id="pages" name="pages" min="1">
+        <div class="labelInput">
+          <label for="pages">Pages:</label>
+          <input type="number" id="pages" name="pages" min="1">
+        </div>
 
-        <label for="read">Read:</label>
-        <input type="checkbox" id="read" name="read">
-
+        <div class="labelInput">
+          <label for="read">Read:</label>
+          <input type="checkbox" id="read" name="read">
+        </div>
       </fieldset>
 
-      <button value="cancel" formmethod="dialog">Cancel</button>
-      <button id="submitBtn" type="submit">Submit</button>
+      <div class="btns">
+        <button value="cancel" formmethod="dialog">Cancel</button>
+        <button id="submitBtn" type="submit">Submit</button>
+      </div>
     </form>
   </dialog>
   <button>Add Book</button>
