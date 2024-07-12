@@ -51,12 +51,18 @@ function displayLibrary() {
     const read = document.createElement("div");
     let readStatus;
     if (myLibrary[i].read) {
-      readStatus = "✓";
+      readStatus = "Y";
     } else {
-      readStatus = "X";
+      readStatus = "N";
     }
     read.textContent = "Read: " + readStatus;
     card.appendChild(read);
+
+    const btn = document.createElement("button");
+    btn.classList.add("remove");
+    btn.textContent = "x";
+    btn.setAttribute("data-index", i);
+    card.appendChild(btn);
 
     cardGrid.appendChild(card);
   }
@@ -70,8 +76,6 @@ newBookButton.addEventListener("click", () => {
   dialog.showModal();
 });
 
-
-
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -82,9 +86,19 @@ submitButton.addEventListener("click", (event) => {
   
   addBookToLibrary(title.value, author.value, pages.value, read.checked);
   displayLibrary();
-  
+
   dialog.close();
 });
+
+document.addEventListener('click', someListener);
+
+function someListener(event) {
+  const element = event.target;
+  if (element.classList.contains("remove")) {
+    myLibrary.splice(element.getAttribute("data-index"), 1);
+    displayLibrary();
+  }
+}
 
 addBookToLibrary("Bob's Cook", "Bob", 522, true);
 addBookToLibrary("You're Mom Cook", "Bob", 521, false);
