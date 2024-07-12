@@ -50,6 +50,7 @@
   padding: 8px 6px;
   line-height: 0px;
   align-self: flex-end;
+  background-color: lightcoral;
 }
 
 .remove:hover {
@@ -64,6 +65,7 @@ button {
 
 dialog + button {
   margin-left: 25%;
+  background-color: lightgreen;
 }
 
 dialog button {
