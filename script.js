@@ -26,6 +26,9 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayLibrary() {
   const cardGrid = document.querySelector(".cards");
+  while (cardGrid.firstChild) {
+    cardGrid.removeChild(cardGrid.lastChild);
+  }
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -57,7 +60,7 @@ function displayLibrary() {
 }
 
 addBookToLibrary("Bob's Cook", "Bob", 522, true);
-addBookToLibrary("Bob's Cook", "Bob", 522, true);
+addBookToLibrary("You're Mom Cook", "Bob", 521, false);
 addBookToLibrary("Bob's Cook", "Bob", 522, true);
 
 displayLibrary();
