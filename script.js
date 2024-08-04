@@ -29,7 +29,7 @@ class Library {
       card.appendChild(pages);
 
       const readLine = document.createElement("div");
-      readLine.classList.add('readLine');
+      readLine.classList.add("readLine");
       const read = document.createElement("div");
       read.textContent = "Read: ";
 
@@ -76,7 +76,7 @@ class Book {
     } else {
       readStatus = "not read yet";
     }
-    return '${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}';
+    return "${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}";
   }
 
   toggleRead() {
@@ -98,19 +98,25 @@ class interactionController {
 
     this.submitButton.addEventListener("click", (event) => {
       event.preventDefault();
-    
+
       const title = this.dialog.querySelector("#title");
       const author = this.dialog.querySelector("#author");
       const pages = this.dialog.querySelector("#pages");
       const read = this.dialog.querySelector("#read");
-      
-      library.addBook(new Book(title.value, author.value, pages.value, read.checked));
+
+      if (!title.validity.valid || !author.validity.valid || !pages.validity.valid) {
+        return;
+      }
+
+      library.addBook(
+        new Book(title.value, author.value, pages.value, read.checked)
+      );
       library.displayLibrary();
-    
+
       this.dialog.close();
     });
 
-    document.addEventListener('click', someListener);
+    document.addEventListener("click", someListener);
 
     function someListener(event) {
       const element = event.target;
@@ -132,6 +138,8 @@ controller.setupEventListeners();
 
 library.addBook(new Book("Bob's Cook Book", "Bob", 22, true));
 library.addBook(new Book("Hunger Games", "Suzanne Collins", 221, false));
-library.addBook(new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 522, true));
+library.addBook(
+  new Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 522, true)
+);
 
 library.displayLibrary();

@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <div class="cards"></div>
-  <dialog>
-    <form>
-      <fieldset>
-        <legend>Add Book</legend>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="cards"></div>
+    <dialog>
+      <form>
+        <fieldset>
+          <legend>Add Book</legend>
 
-        <div class="labelInput">
-          <label for="title">Title:</label>
-          <input type="text" id="title" name="title">
+          <div class="labelInput">
+            <label for="title">*Title:</label>
+            <input type="text" id="title" name="title" required />
+          </div>
+
+          <div class="labelInput">
+            <label for="author">*Author:</label>
+            <input type="text" id="author" name="author" required />
+          </div>
+
+          <div class="labelInput">
+            <label for="pages">*Pages:</label>
+            <input type="number" id="pages" name="pages" min="1" required />
+          </div>
+
+          <div class="labelInput">
+            <label for="read">Read:</label>
+            <input type="checkbox" id="read" name="read" />
+          </div>
+        </fieldset>
+
+        <div class="btns">
+          <button value="cancel" formmethod="dialog">Cancel</button>
+          <button id="submitBtn" type="submit">Submit</button>
         </div>
-
-        <div class="labelInput">
-          <label for="author">Author:</label>
-          <input type="text" id="author" name="author">
-        </div>
-
-        <div class="labelInput">
-          <label for="pages">Pages:</label>
-          <input type="number" id="pages" name="pages" min="1">
-        </div>
-
-        <div class="labelInput">
-          <label for="read">Read:</label>
-          <input type="checkbox" id="read" name="read">
-        </div>
-      </fieldset>
-
-      <div class="btns">
-        <button value="cancel" formmethod="dialog">Cancel</button>
-        <button id="submitBtn" type="submit">Submit</button>
-      </div>
-    </form>
-  </dialog>
-  <button>Add Book</button>
-</body>
+      </form>
+    </dialog>
+    <button>Add Book</button>
+  </body>
 </html>
